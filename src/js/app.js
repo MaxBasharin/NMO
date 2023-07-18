@@ -223,6 +223,14 @@ $('.btn--requirements').click(function () {
     type: 'inline'
   });
 });
+$('.btn--instruction').click(function () {
+  $.fancybox.open({
+    src: '#form--instruction',
+    type: 'inline'
+  });
+});
+
+const button = document.getElementById('submit');
 
 function zero_first_format(value) {
   if (value < 10) {
@@ -243,6 +251,7 @@ $(".btn--curriculum").click(function () {
     scrollTop: $(".curriculum").offset().top
   }, 1000);
 });
+
 
 new WOW().init();
 

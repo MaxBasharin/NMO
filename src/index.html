@@ -180,20 +180,46 @@
           </image>
         </defs>
       </symbol>
+      <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 14" id="icon-discount">
+        <circle cx="3.5" cy="3.5" r="2.75" stroke="#005DFF" stroke-width="1.5"></circle>
+        <circle cx="11.5" cy="10.5" r="2.75" stroke="#005DFF" stroke-width="1.5"></circle>
+        <line x1="10.8995" y1="1.24609" x2="4.39952" y2="12.5044" stroke="#005DFF" stroke-width="1.5"></line>
+      </symbol>
+      <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="download-line">
+        <path
+          d="M3 19L21 19V21L3 21V19ZM13 13.172L19.071 7.1L20.485 8.514L12 17L3.515 8.515L4.929 7.1L11 13.17L11 2L13 2L13 13.172Z"
+          fill="white"></path>
+      </symbol>
+      <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 13" id="like-box">
+        <path
+          d="M7.00072 10.1715L16.1927 0.978516L17.6077 2.39252L7.00072 12.9995L0.636719 6.63552L2.05072 5.22152L7.00072 10.1715Z"
+          fill="#FD3C76"></path>
+      </symbol>
     </svg>
     @@include('html/header.html', {})
     <main class="main">
       <div data-observ>
-
         <section class="intro">
           <div class="wrapper">
             <div class="intro__wrapper">
-              <div class="intro__wrapper-content wow fadeInDown">
+
+              <div class="intro__wrapper-content">
                 <div class="intro__suptitle">
-                  Он-лайн переподготовка
+                  ЦИКЛ НМО
                 </div>
                 <div class="intro__title">
-                  Медицинская диагностика в акушерстве, гинекологии и рентгенологии
+                  Непрерывное медицинское образование
+                </div>
+                <div class="intro__nmo  wow fadeInRight" data-wow-delay=".1s">
+                  <div class="intro__nmo-num">
+                    +36
+                  </div>
+                  <span>
+                    баллов
+                  </span>
+                  <span>
+                    НМО
+                  </span>
                 </div>
                 <ul class="intro__lists">
                   <li class="intro__list">
@@ -201,7 +227,7 @@
                       <use xlink:href="#icon-check"></use>
                     </svg>
                     <p>
-                      По примерной программе <span class="pinkColor">Минздрава РФ</span>
+                      Баллы <span class="pinkColor">НМО</span> начисляются в день окончания цикла 30%
                     </p>
                   </li>
                   <li class="intro__list">
@@ -209,7 +235,7 @@
                       <use xlink:href="#icon-check"></use>
                     </svg>
                     <p>
-                      <span class="pinkColor">Диплом</span> с правом ведения деятельности
+                      Возможность получить налоговый вычет <span class="pinkColor">13%</span>
                     </p>
                   </li>
                   <li class="intro__list">
@@ -217,13 +243,19 @@
                       <use xlink:href="#icon-check"></use>
                     </svg>
                     <p>
-                      Возможность получить налоговый <span class="pinkColor">вычет 13%</span>
+                      Удостоверение вносится в <span class="pinkColor">ФРДО</span> и подходит для последующей
+                      периодической аккредитации
                     </p>
                   </li>
                 </ul>
-                <button class="btn btn--intro btn--education" type="button">
-                  Записаться на курс
+                <button class="btn btn--intro btn--consultation newpots" type="button">
+                  Получить консультацию
                 </button>
+                <br />
+                <br />
+                <a href="https://edu.rosminzdrav.ru/" target="_blank" class="btn btn--intro btn--pink" type="button">
+                  Подать заявку на edu.rosminzdrav.ru
+                </a>
               </div>
               <div class="intro__wrapper-img wow fadeIn" data-wow-delay=".4s">
                 <img src="images/intro-doctor.png" alt="фото врача">
@@ -235,11 +267,11 @@
                     <svg class="intro__include-icon">
                       <use xlink:href="#icon-clock"></use>
                     </svg>
-                    <span>6 недель</span>
+                    <span>45 дней</span>
                   </div>
                 </div>
                 <div class="intro__include-list">
-                  <div class="intro__include-title">Формат обучения</div>
+                  <div class="intro__include-title">Формат услуги</div>
                   <div class="intro__include-item">
                     <svg class="intro__include-icon">
                       <use xlink:href="#icon-desktop"></use>
@@ -248,21 +280,22 @@
                   </div>
                 </div>
                 <div class="intro__include-list">
-                  <div class="intro__include-title">Диплом</div>
+                  <div class="intro__include-title">Удостоверение</div>
                   <div class="intro__include-item">
                     <svg class="intro__include-icon">
                       <use xlink:href="#icon-envelope"></use>
                     </svg>
-                    <span>Бесплатная доставка диплома</span>
+                    <span>Бесплатная доставка удостоверения</span>
                   </div>
                 </div>
                 <div class="intro__include-list">
-                  <div class="intro__include-title">Требования</div>
+                  <div class="intro__include-title">Специальность</div>
                   <div class="intro__include-item">
                     <svg class="intro__include-icon">
                       <use xlink:href="#icon-exclamatory"></use>
                     </svg>
-                    <span>Есть <span class="btn--requirements"> требованиями к поступающим</span>
+                    <span class="btn--requirements js-modal-box-btn" data-modal="course-requirements">Перечень
+                      заявленных специальностей </span>
                   </div>
                 </div>
               </div>
@@ -307,395 +340,113 @@
           </div>
         </section>
 
-        <section class="salary">
+        <section class="course">
           <div class="wrapper">
-            <h2 class="title wow fadeInLeft" data-wow-delay=".1s">
-              <span class="pinkColor">Работодатели</span> ищут врачей
+            <h2 class="title">
+              Кому подойдёт этот курс
             </h2>
-            <div class="salary__inner">
-              <div class="salary__item wow fadeInLeftBig" data-wow-delay=".1s">
-                <div class="salary__item-sum">
-                  50 000–65 000 ₽
+            <div class="course__wrapper">
+              <div class="course__item wow fadeInUpBig" data-wow-delay=".1s">
+                <div class="course__item-img">
+                  <img src="./images/course-1.png">
                 </div>
-                <div class="salary__item-specialist">
-                  Начинающий врач с опытом до 1 года
+                <div class="course__item-title">
+                  Тем, кто идет на аккредитацию
                 </div>
-                <div class="salary-icon">
-                  <svg class="icon-oneCoin">
-                    <use xlink:href="#icon-oneCoin"></use>
-                  </svg>
-                </div>
-              </div>
-              <div class="salary__item wow fadeInLeftBig" data-wow-delay=".2s">
-                <div class="salary__item-sum">
-                  70 000–100 000 ₽
-                </div>
-                <div class="salary__item-specialist">
-                  Опытный врач с опытом от 5 лет
-                </div>
-                <div class="salary-icon">
-                  <svg class="icon-twoCoin">
-                    <use xlink:href="#icon-twoCoin"></use>
-                  </svg>
+                <div class="course__item-text">
+                  Если у Вас истекает сертификат и в срочном порядке необходимо пройти обучение, получить удостоверение
+                  и подать документы в ФАЦ
                 </div>
               </div>
-              <div class="salary__item blueColorBg wow fadeInLeftBig" data-wow-delay=".3s">
-                <div class="salary__item-sum">
-                  от 120 000 ₽
+              <div class="course__item wow fadeInUpBig" data-wow-delay=".2s">
+                <div class="course__item-img">
+                  <img src="./images/course-2.png">
                 </div>
-                <div class="salary__item-specialist">
-                  Врач эксперт с опытом от 10 лет
+                <div class="course__item-title">
+                  Тем, кому нужен индивидуальный куратор
                 </div>
-                <div class="salary-icon">
-                  <svg class="icon-threeCoin">
-                    <use xlink:href="#icon-threeCoin"></use>
-                  </svg>
+                <div class="course__item-text">
+                  За Вами будет закреплён индивидуальный куратор, который сопроводит Вас по протяжении всего Вашего
+                  обучения, поможет и проконсультирует в случае необходимости
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="learning-profit block block--default" data-block-name="Через сколько окупится обучение"
-          id="learning-profit">
-          <div class="wrapper learing-profit__block">
-            <div class="learing-profit__wrapper">
-              <h2 class="title wow fadeInLeft" data-wow-delay=".1s">
-                Как быстро <span class="pinkColor">окупится</span> обучение
-              </h2>
-              <p class="learning-profit__desc p p--1 wow fadeInLeft" data-wow-delay=".1s">
-                Показываем, как будет расти Ваш заработок вместе с опытом и сколько времени потребуется, чтобы окупить
-                обучение
-              </p>
-
-              <div data-theme="dark" class="learning-profit__duration wow fadeInLeft" data-wow-delay=".2s">
-                <p class="learning-profit__duration-text p p--3">
-                  На позиции
-                  <b class="learning-profit__grade-name t">Начинающий врач</b> вы окупите
-                  стоимость обучения
-                </p>
-                <p class="learning-profit__duration-value__first t t--1">за 1 месяц</p>
-                <p class="learning-profit__duration-value t t--1" style="opacity: 0">за 1 месяц</p>
-              </div>
-              <div class="learning-profit__calc wow fadeInUp" data-wow-delay=".3s">
-                <h3 class="learning-profit__subtitle t t--2">
-                  Средние зарплаты врачей по новой, <span class="pinkColor">выбранной Вами специльности</span>
-                </h3>
-                <span class="learning-profit__info-by f f--12">
-
-                </span>
-                <div
-                  class="learning-profit__slider noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr learning-profit__slider--min"
-                  data-range-start="60000" data-range-middle="120000" data-range-end="150000"
-                  data-gradations='["Начинающий врач","Опытный врач","Врач эксперт"]' data-course-price="87600"
-                  data-currency="₽" style="--glasses-opacity: 0">
-                  <div class="noUi-base">
-                    <div class="noUi-connects">
-                      <div class="noUi-connect" style="transform: translate(0%, 0px) scale(0, 1)"></div>
-                    </div>
-
-                  </div>
+              <div class="course__item wow fadeInUpBig" data-wow-delay=".3s">
+                <div class="course__item-img">
+                  <img src="./images/course-3.png">
                 </div>
-                <ul class="learning-profit__values">
-                  <li class="learning-profit__value">
-                    <noscript> <span class="f f--12"> 60000 ₽ </span> </noscript>
-                    <b class="f f--14 f--m">Начинающий</b>
-                    <span class="f f--12">Опыт до года</span>
-                  </li>
-                  <li class="learning-profit__value">
-                    <noscript> <span class="f f--12"> 120000 ₽ </span> </noscript>
-                    <b class="f f--14 f--m">Опытный</b>
-                    <span class="f f--12">Опыт от 5 лет</span>
-                  </li>
-                  <li class="learning-profit__value">
-                    <noscript> <span class="f f--12"> 150000 ₽ </span> </noscript>
-                    <b class="f f--14 f--m">Эксперт</b>
-                    <span class="f f--12">Опыт 10 лет</span>
-                  </li>
-                </ul>
+                <div class="course__item-title">
+                  Тем, кому нужны новые знания
+                </div>
+                <div class="course__item-text">
+                  В системе дистанционного обучения Вы получите доступ к учебным материалам Академии, закрытой
+                  электронной библиотечной системе, видеолекциям (при наличии)
+                </div>
+              </div>
+
+              <div class="course__item wow fadeInUpBig" data-wow-delay=".4s">
+                <div class="course__item-img">
+                  <img src="./images/course-4.png">
+                </div>
+                <div class="course__item-title">
+                  Тем, кто хочет учиться в свободном графике
+                </div>
+                <div class="course__item-text">
+                  Вас подключат к системе дистанционного обучения, Вы сможете заходить на портал и обучаться в удобное
+                  для Вас время
+                </div>
+              </div>
+              <div class="course__item wow fadeInUpBig" data-wow-delay=".5s">
+                <div class="course__item-img">
+                  <img src="./images/course-5.png">
+                </div>
+                <div class="course__item-title">
+                  Тем, у кого дефицит времени
+                </div>
+                <div class="course__item-text">
+
+                </div>
+              </div>
+              <div class="course__item wow fadeInUpBig" data-wow-delay=".6s">
+                <div class="course__item-img">
+                  <img src="./images/course-6.png">
+                </div>
+                <div class="course__item-title">
+                  Тем, кто ищет выгодные курсы
+                </div>
+                <div class="course__item-text">
+
+                </div>
               </div>
 
             </div>
-          </div>
         </section>
 
-        <section class="whom">
+         <section class="instruction">
           <div class="wrapper">
-            <div class="whom__inner">
-              <div class="whom__title wow fadeInLeftBig" data-wow-delay=".1s">
-                <h2 class="title wow fadeInLeft" data-wow-delay=".1s">
-                  Кому подойдёт <br />этот курс
+            <div class="instruction__wrapper">
+              <div class="instruction__item instruction__item-video wow fadeInLeft" data-wow-delay=".1s">
+                <iframe width="560" height="215" src="https://www.youtube.com/embed/W27AvHkDg_Y"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="instruction__item wow fadeInRight" data-wow-delay=".2s">
+                <h2 class="title">
+                  Инструкция по подаче заявки на НМО
                 </h2>
-                <button class="btn btn--consultation" type="btn">
-                  Консультация
+                <div class="instruction__subtitle">
+                  Можете посмотреть видео-инструкцию или скачать презентацию
+                </div>
+                <button class="btn btn--instruction" type="button">
+                  <span>Получить инструкцию</span>
+                  <svg class="download-line">
+                    <use href="#download-line"></use>
+                  </svg>
                 </button>
               </div>
-              <div class="whom__inner-item wow fadeInLeftBig" data-wow-delay=".2s">
-                <div class="whom__inner-item__text">
-                  <div class="whom__inner-item__title">
-                    Врачам, желающим получить диплом
-                  </div>
-                  <div class="whom__inner-item__subtitle">
-                    Врачам, имеющим соответствующее базовое образование.
-                  </div>
-                </div>
-                <div class="whom__inner-item__img whom__inner-item__img--blue">
-                  <img src="images/whom-1.png" alt="">
-                </div>
-                <button class="btn btn--pink btn--requirements">Требованиями к поступающим</button>
-              </div>
-              <div class="whom__inner-item wow fadeInLeftBig" data-wow-delay=".3s">
-                <div class="whom__inner-item__text">
-                  <div class="whom__inner-item__title">
-                    Врачам, желающим получить новые знания
-                  </div>
-                  <div class="whom__inner-item__subtitle">
-                    Врачам, желающим увеличить доход, планирующим трудоустроиться по новой специальности, мотивированным
-                    к получению знаний от ведущих экспертов
-                  </div>
-                </div>
-                <div class="whom__inner-item__img whom__inner-item__img--pink">
-                  <img src="images/whom-2.png" alt="">
-                </div>
-                <button class="btn btn--curriculum">Учебный план</button>
-              </div>
             </div>
           </div>
-        </section>
-        <section class="poss">
-          <div class="wrapper">
-            <h2 class="title wow fadeInLeft" data-wow-delay=".1s">
-              Наш диплом открывает новые <br /><span class="pinkColor">возможности</span> в работе
-            </h2>
-            <div class="poss__inner">
-              <div class="poss__inner-item poss__inner-item-grayLightColor wow fadeInLeftBig" data-wow-delay=".1s">
-                <div class="poss__icon">
-                  <svg class="icon-state">
-                    <use xlink:href="#icon-state"></use>
-                  </svg>
-                </div>
-                <div class="poss__inner-item__title">
-                  Государственные медицинские организации:
-                </div>
-                <div class="poss__inner-item__text">
-                  Стабильное место
-                  работы, карьерный и
-                  компетентностный рост
-                  в госструктре
-                </div>
-              </div>
-              <div class="poss__inner-item poss__inner-item-blueColor wow fadeInLeftBig" data-wow-delay=".2s">
-                <div class="poss__icon">
-                  <svg class="icon-med">
-                    <use xlink:href="#icon-med"></use>
-                  </svg>
-                </div>
-                <div class="poss__inner-item__title">
-                  Частные клиники:
-                </div>
-                <div class="poss__inner-item__text">
-                  Получение
-                  беспотолочной
-                  заработной платы в
-                  зависимости от
-                  количества приемов
-
-                </div>
-              </div>
-              <div class="poss__inner-item poss__inner-item-pinkColor wow fadeInLeftBig" data-wow-delay=".3s">
-                <div class="poss__icon">
-                  <svg class="icon-star">
-                    <use xlink:href="#icon-star"></use>
-                  </svg>
-                </div>
-                <div class="poss__inner-item__title">
-                  Частный личный
-                  кабинет врача-специалиста:
-                </div>
-                <div class="poss__inner-item__text">
-                  Высокий
-                  личный доход и
-                  свободное
-                  планирование
-                  трудовой деятельности
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="consultation">
-          <div class="wrapper">
-            <div class="consultation__wrapper">
-              <div class="consultation__inner">
-                <h2 class="title wow fadeInLeft" data-wow-delay=".1s">
-                  Получить консультацию специалиста и презентацию профессии
-                </h2>
-              </div>
-              <div class="consultation__inner wow fadeInRight" data-wow-delay=".2s">
-                <form action="#" class="form consultation__form" method="POST" enctype="multipart/form-data"
-                  novalidate="novalidate">
-
-                  <label class="form__label">
-                    <input class="input input-name" type="text" data-validate-field="name" name="Имя" placeholder="Имя">
-                  </label>
-                  <label class="form__label">
-                    <input class="input input-tel phone" type="tel" data-validate-field="tel" name="Телефон"
-                      placeholder="Телефон" inputmode="text">
-                  </label>
-                  <label class="form__label">
-                    <input id="email" class="input input-mail" type="email" data-validate-field="email" name="Email"
-                      placeholder="Введите email">
-                  </label>
-                  <div class="consultation__btns"><button class="btn consultation__btn btn--pink" type="button">Получить
-                      ответ</button>
-                    <div class="consultation__btns">
-                      <input type="checkbox" class="custom-checkbox" id="news" name="news" value="yes"
-                        checked="checked">
-                      <label for="news" class="checkbox__text">Получать новости о скидках, <br /> акциях и
-                        бонусах</label>
-                    </div>
-                  </div>
-                  <div class="consultation__policy">
-                    Нажимая на кнопку, вы соглашаетесь с <a class="consultation__policy-link"
-                      href="https://apkipp.ru/policy/" target="_blank">Политикой
-                      конфиденциальности сайта </a>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="help">
-          <div class="wrapper">
-            <div class="help__wrapper">
-              <h2 class="title wow fadeInLeft" data-wow-delay=".1s">
-                Мы помогаем нашим студентам с <span class="pinkColor">трудоустройством</span>
-              </h2>
-              <div class="help__step">
-                <div class="help__step-item wow fadeInLeft" data-wow-delay=".1s">
-                  <div class="help__step-item__num">
-                    1
-                  </div>
-                  <div class="help__step-item__title">
-                    Помогаем
-                    аккредитоваться
-
-                  </div>
-                  <div class="help__step-item__text">
-                    Подготовим Вас к
-                    первичной
-                    аккредитации
-
-                  </div>
-                </div>
-                <div class="help__step-item wow fadeInLeft" data-wow-delay=".2s">
-                  <div class="help__step-item__num">
-                    2
-                  </div>
-                  <div class="help__step-item__title">
-                    Даем
-                    рекомендательное
-                    письмо работодателю
-
-                  </div>
-                  <div class="help__step-item__text">
-                    Вы получите
-                    рекомендательное
-                    письмо директора
-                    Академии
-
-                  </div>
-                </div>
-                <div class="help__step-item wow fadeInLeft" data-wow-delay=".3s">
-                  <div class="help__step-item__num help__step-item__num-blue">
-                    3
-                  </div>
-                  <div class="help__step-item__title">
-                    Составим эффективное резюме
-                  </div>
-                  <div class="help__step-item__text">
-                    Поможем составить
-                    резюме для
-                    работодателя по новой
-                    специальности
-
-                  </div>
-                </div>
-              </div>
-
-              <div class="help__inner">
-                <div class="help__inner-item wow fadeInLeft" data-wow-delay=".4s">
-                  <div class="help__inner-item__num">
-                    84%
-                  </div>
-                  <div class="help__inner-item__text">
-                    Наших
-                    выпускников нашли
-                    работу по новой
-                    специальности
-
-                  </div>
-                </div>
-                <div class="help__inner-item wow fadeInLeft" data-wow-delay=".5s">
-                  <div class="help__inner-item__num">
-                    432
-                  </div>
-                  <div class="help__inner-item__text">
-                    Наши партнера
-                    ждут выпускников
-                    академии
-
-                  </div>
-                </div>
-                <div class="help__inner-item wow fadeInLeft" data-wow-delay=".6s">
-                  <div class="help__inner-item__num">
-                    15 213
-                  </div>
-                  <div class="help__inner-item__text">
-                    Медорганизации
-                    в России открыли вакансии по этой
-                    специальности
-
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-        <section class="companies">
-          <div class="wrapper">
-            <div class="companies__wrapper">
-              <h2 class="title wow fadeInLeft" data-wow-delay=".1s">
-                Наши выпускники работают <br />в <span class="pinkColor">ведущих медицинских организациях </span>
-              </h2>
-              <div class="companies__inner">
-                <div class="companies__inner-item wow fadeInLeft" data-wow-delay=".1s">
-                  <img src="images/company-1.png" alt="Служба крови">
-                </div>
-                <div class="companies__inner-item wow fadeInLeft" data-wow-delay=".2s">
-                  <img src="images/company-2.png" alt="ФМБА России">
-                </div>
-                <div class="companies__inner-item wow fadeInLeft" data-wow-delay=".3s">
-                  <img src="images/company-3.png" alt="РЖД медицина">
-                </div>
-                <div class="companies__inner-item wow fadeInLeft" data-wow-delay=".4s">
-                  <img src="images/company-4.png" alt="РНИИМП">
-                </div>
-                <div class="companies__inner-item wow fadeInLeft" data-wow-delay=".5s">
-                  <img src="images/company-5.png" alt="Компания окнологии">
-                </div>
-                <div class="companies__inner-item wow fadeInLeft" data-wow-delay=".6s">
-                  <img src="images/company-6.png" alt="Газпром">
-                </div>
-              </div>
-              <button class="btn btn--companies btn--education wow fadeInUp" data-wow-delay=".1s" type="button"> Пройти
-                курс</button>
-            </div>
-          </div>
-        </section>
+        </section> 
         <section class="about">
           <div class="wrapper">
             <div class="about__wrapper wow fadeIn" data-wow-delay=".1s">
@@ -755,42 +506,49 @@
             </div>
           </div>
         </section>
+        <section class="tfoms wow fadeInUp" data-wow-delay=".1s">
+          <div class="wrapper">
+            <div class="tfoms__wrapper">
+              <h2 class="title pinkColor">
+                Пройдите обучение за счет средств ТФОМС
+              </h2>
+              <div class="tfoms__subtitle">
+                Мы числимся в списке разрешенных организаций на портале НМО.
+                <br />
+                Многие курсы доступны для зачисления за
+                счет средств ТФОМС.
+              </div>
+              <div class="tfoms__link">
+                <a href="./static/Instruktsiya_TFOMS_PDF.pdf" target="_blank">
+                  Скачайте инструкцию
+                </a>
+                <span>- как пройти обучение без оплаты.</span>
+              </div>
+            </div>
+          </div>
+        </section>
         <section class="diplom">
           <div class="wrapper">
             <div class="diplom__inner">
               <div class="diplom__inner-item">
                 <h2 class="title wow fadeInLeft" data-wow-delay=".1s">
-                  Вашу квалификацию <br />подтвердят <span class="pinkColor">документы государственного образца</span>
+                  Информация о Вашем повышении квалификации
+                  будет внесена в <span class="pinkColor">Федеральный реестр документов об образовании</span>
                 </h2>
                 <div class="diplom__inner-item__text wow fadeInLeft" data-wow-delay=".2s">
-                  Вы получите диплом с
-                  правом ведения
-                  деятельности и
-                  присвоением новой
-                  квалификации,
-                  внесенный в ФРДО
-                  (федеральный реестр
-                  документов об
-                  образовании)
-
+                  Вы получите удостоверение о повышении квалификации, внесенное в ФРДО
                 </div>
                 <button class="btn btn--consultation wow fadeInUp" data-wow-delay=".3s"
                   type="button">Консультация</button>
               </div>
               <div class="diplom__inner-item wow fadeInRight" data-wow-delay=".4s">
-                <a data-fancybox="video-diplom" href="https://youtu.be/4cmzvR-NfDA">
+                <div>
                   <div class="diplom__inner-item__img">
 
-
-                    <svg class="icon-play diplom__icon-play">
-                      <use xlink:href="#icon-play"></use>
-                    </svg>
                     <img src="images/oksana.jpg">
                   </div>
-                </a>
-                <div class="diplom__inner-item__img-text">
-                  Видеообращение начальника учебного отдела – Денисовой Оксаны Викторовны
                 </div>
+
               </div>
             </div>
             <div class="diplom__slider  wow fadeInUp" data-wow-delay=".1s">
@@ -1040,8 +798,7 @@
                     <label>
                       <input type="checkbox" class="custom-checkbox" id="news" name="news" value="yes"
                         checked="checked">
-                      <label for="news" class="checkbox__text">Получать новости о скидках, <br />акциях и
-                        бонусах</label>
+                      <label for="news" class="checkbox__text">Получать новости <br />обновлений профстандартов</label>
                     </label>
                   </div>
                   <div class="consultation__policy">
@@ -1077,14 +834,13 @@
               </div>
               <div class="program__content wow fadeInLeftBig" data-wow-delay=".3s">
                 <h2 class="title wow fadeInLeft" data-wow-delay=".4s">
-                  О программе обучения
+                  Что такое НМО?
                 </h2>
                 <div class="program__content-text">
-                  Курс “Ультразвуковая диагностика” предназначен для специалистов с высшим медицинским образованием,
-                  ориентированных на получение новой для себя профессии, а также для профессионалов, которым необходимо
-                  актуализировать знания. Для принятия решения о начале переподготовки по курсу Ультразвуковая
-                  диагностика очень важно знать о темах, освещаемых в ходе обучения. Курс обучение завершается оценкой
-                  знаний Курс обучение завершается оценкой. Курс обучение завершается оценкой знаний .
+                  С 2021 года система аккредитации медицинских и фармацевтических работников является единственным
+                  форматом получения допуска к профессиональной деятельности. Чтобы пройти аккредитацию и получить
+                  свидетельство об аккредитации, следует вступить в систему Непрерывного медицинского образования.
+                  Периодичность прохождения аккредитации составляет, как и раньше, 1 раз в 5 лет.
                 </div>
 
               </div>
@@ -1623,7 +1379,7 @@
                   </tbody>
 
                   <caption class="curriculum-table__footer-caption curriculum-table__footer-btn-block">
-                    <span class="btn main-btn btn--education" id="edu-modal">Отправить заявку</span>
+                    <span class="btn main-btn btn--consultation" id="edu-modal">Отправить заявку</span>
                   </caption>
                 </table>
                 <input type="hidden" class="js-curriculum-email" name="email">
@@ -1634,11 +1390,10 @@
             </div>
           </div>
         </section>
-
         <section class="skills">
           <div class="wrapper">
             <h2 class="title wow fadeInLeft" data-wow-delay=".1s">
-              Навыки после обучения
+              Что Вы получите в итоге обучения
             </h2>
           </div>
 
@@ -1672,7 +1427,7 @@
             <div class="services__inner">
               <div class="services__inner-item wow fadeInLeftBig" data-wow-delay=".1s">
                 <div class="services__inner-item__title">
-                  Подготовка к тестированию
+                  Проверка квалификационного соответствия
                 </div>
                 <ul class="services__lists">
                   <li class="services__list">
@@ -1680,7 +1435,7 @@
                       <use xlink:href="#icon-check"></use>
                     </svg>
                     <p>
-                      Даем ссылки на тренировочное тестирование
+                      стаж
                     </p>
                   </li>
                   <li class="services__list">
@@ -1688,7 +1443,7 @@
                       <use xlink:href="#icon-check"></use>
                     </svg>
                     <p>
-                      Даем литературу для подготовки
+                      повышение квалификации
                     </p>
                   </li>
                   <li class="services__list">
@@ -1696,7 +1451,7 @@
                       <use xlink:href="#icon-check"></use>
                     </svg>
                     <p>
-                      Мониторим результаты Вашего тестирования ежемесячно и помогаем получить прогресс
+                      наличие информации в ФРДО и ФРМР
                     </p>
                   </li>
 
@@ -1704,7 +1459,7 @@
               </div>
               <div class="services__inner-item services__inner-item__blue wow fadeInLeftBig" data-wow-delay=".2s">
                 <div class="services__inner-item__title">
-                  Получение квоты на аккредитацию
+                  Составление документов
                 </div>
                 <ul class="services__lists">
                   <li class="services__list">
@@ -1712,7 +1467,7 @@
                       <use xlink:href="#icon-checkWhite"></use>
                     </svg>
                     <p>
-                      Подбираем площадку в вашем регионе
+                      составление отчёта о профессиональной деятельности по вновь утвержденному профстандарту
                     </p>
                   </li>
                   <li class="services__list">
@@ -1720,39 +1475,14 @@
                       <use xlink:href="#icon-checkWhite"></use>
                     </svg>
                     <p>
-                      Помогаем получить квоту
+                      составление статистического отчёта о профессиональной деятельности
                     </p>
                   </li>
-                  <li class="services__list">
-                    <svg class="icon-check">
-                      <use xlink:href="#icon-checkWhite"></use>
-                    </svg>
-                    <p>
-                      Сообщаем точную дату проведения аттестации
-                    </p>
-                  </li>
-                  <li class="services__list">
-                    <svg class="icon-check">
-                      <use xlink:href="#icon-checkWhite"></use>
-                    </svg>
-                    <p>
-                      Проходите аккредитацию
-                    </p>
-                  </li>
-                  <li class="services__list">
-                    <svg class="icon-check">
-                      <use xlink:href="#icon-checkWhite"></use>
-                    </svg>
-                    <p>
-                      Знакомитесь с приказом Минздрава об успешной первичной специализированной аккредитации
-                    </p>
-                  </li>
-
                 </ul>
               </div>
               <div class="services__inner-item wow fadeInLeftBig" data-wow-delay=".3s">
                 <div class="services__inner-item__title">
-                  Чек-листы Минздрава РФ по станциям
+                  Сопровождение подачи документов в Минздрав
                 </div>
                 <ul class="services__lists">
                   <li class="services__list">
@@ -1760,7 +1490,7 @@
                       <use xlink:href="#icon-check"></use>
                     </svg>
                     <p>
-                      Предоставляем точный перечень станций
+                      консультирование по методам и формам подачи документов в Минздрав
                     </p>
                   </li>
                   <li class="services__list">
@@ -1768,32 +1498,101 @@
                       <use xlink:href="#icon-check"></use>
                     </svg>
                     <p>
-                      Даем пошаговое описание работы аккредитационной комиссии в каждой станции
+                      подача информации за клиента в случае необходимости или возникновения сложностей
                     </p>
                   </li>
-                  <li class="services__list">
-                    <svg class="icon-check">
-                      <use xlink:href="#icon-check"></use>
-                    </svg>
-                    <p>
-                      Поясняем как вести себя в станциях
-                    </p>
-                  </li>
-                  <li class="services__list">
-                    <svg class="icon-check">
-                      <use xlink:href="#icon-check"></use>
-                    </svg>
-                    <p>
-                      Объясняем как именно комиссия будет оценивать Ваши навыки
-                    </p>
-                  </li>
-
                 </ul>
               </div>
-
             </div>
           </div>
         </sections>
+
+        <section class="key">
+          <div class="wrapper">
+            <div class="key__wrapper wow fadeInUp" data-wow-delay=".1s">
+              <div class="key__wrapper-box">
+                <div class="key__wrapper-box_img wow fadeInUp" data-wow-delay=".2s">
+                  <img src="images/key.png" alt="">
+                </div>
+                <div class="key__wrapper-box_info wow fadeInRight" data-wow-delay=".3s">
+                  <h2 class="title">
+                    Услуга «НМО под ключ»
+                  </h2>
+                  <ul class="key__list">
+                    <li class="key__list-item">
+                      <svg class="icon-check">
+                        <use xlink:href="#like-box"></use>
+                      </svg>
+                      <span>
+                        регистрируем на портале НМО (при необходимости)
+                      </span>
+                    </li>
+                    <li class="key__list-item">
+                      <svg class="icon-check">
+                        <use xlink:href="#like-box"></use>
+                      </svg>
+                      <span>
+                        проверяем количество баллов и их соответствие специальности
+                      </span>
+                    </li>
+                    <li class="key__list-item">
+                      <svg class="icon-check">
+                        <use xlink:href="#like-box"></use>
+                      </svg>
+                      <span>
+                        подбираем необходимый цикл ПК НМО по специальности
+                      </span>
+                    </li>
+                    <li class="key__list-item">
+                      <svg class="icon-check">
+                        <use xlink:href="#like-box"></use>
+                      </svg>
+                      <span>
+                        подбираем и помогаем в освоением интерактивных образовательных модулей (ИОМ) по специальности
+                      </span>
+                    </li>
+                    <li class="key__list-item">
+                      <svg class="icon-check">
+                        <use xlink:href="#like-box"></use>
+                      </svg>
+                      <span>
+                        контролируем рейтинг медработника на портале НМО
+                      </span>
+                    </li>
+                    <li class="key__list-item">
+                      <svg class="icon-check">
+                        <use xlink:href="#like-box"></use>
+                      </svg>
+                      <span>
+                        следим за своевременным накоплением баллов
+                      </span>
+                    </li>
+                    <li class="key__list-item">
+                      <svg class="icon-check">
+                        <use xlink:href="#like-box"></use>
+                      </svg>
+                      <span>
+                        обеспечиваем соответствие квалификационным требованиям к дате периодической аккредитации
+                      </span>
+                    </li>
+                  </ul>
+                  <div class="key__wrapper-price">
+                    <div class="key__price-title">
+                      Цена:
+                    </div>
+                    <div class="key__price-num">
+                      15 000 ₽
+                    </div>
+                    <button class="btn btn--education" type="button">
+                      Заказать услугу
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section> 
 
         <section class="equipment">
           <div class="wrapper">
@@ -1872,31 +1671,9 @@
                             </svg>
                           </div>
                           <div class="gift__wrapper-info__content-item__text">
-                            Доставка дипломов, удостоверений, свидетельств
+                            Доставка удостоверения бесплатно
                           </div>
                         </div>
-                        <div class="gift__wrapper-info__content-item wow fadeInLeft" data-wow-delay=".2s">
-                          <div class="gift-icon">
-                            <svg class="gift__wrapper-icon">
-                              <use xlink:href="#icon-sheets"></use>
-                            </svg>
-                          </div>
-                          <div class="gift__wrapper-info__content-item__text">
-                            Чек-листы Минздрава на аккредитацию
-                          </div>
-                        </div>
-                        <div class="gift__wrapper-info__content-item wow fadeInLeft" data-wow-delay=".3s">
-                          <div class="gift-icon">
-                            <svg class="gift__wrapper-icon">
-                              <use xlink:href="#icon-covid"></use>
-                            </svg>
-                          </div>
-                          <div class="gift__wrapper-info__content-item__text">
-                            Удостоверение по COVID в подарок
-                          </div>
-                        </div>
-                      </div>
-                      <div>
                         <div class="gift__wrapper-info__content-item wow fadeInLeft" data-wow-delay=".4s">
                           <div class="gift-icon">
                             <svg class="gift__wrapper-icon">
@@ -1907,20 +1684,22 @@
                             Доступ к видео-записям занятий на год
                           </div>
                         </div>
-                        <div class="gift__wrapper-info__content-item wow fadeInLeft" data-wow-delay=".5s">
+                        <div class="gift__wrapper-info__content-item wow fadeInLeft" data-wow-delay=".3s">
                           <div class="gift-icon">
                             <svg class="gift__wrapper-icon">
-                              <use xlink:href="#icon-letter"></use>
+                              <use xlink:href="#icon-discount"></use>
                             </svg>
                           </div>
                           <div class="gift__wrapper-info__content-item__text">
-                            Рекомендательное письмо работодателю
+                            Скидка 10% на услугу
+                            <br />«Подготовка документов к периодической аккредитации»
                           </div>
                         </div>
                       </div>
 
+
                     </div>
-                    <button class="btn btn--education wow fadeInUp" data-wow-delay=".6s" type="button">
+                    <button class="btn btn--consultation wow fadeInUp" data-wow-delay=".6s" type="button">
                       Пройти курс
                     </button>
                   </div>
@@ -2166,8 +1945,8 @@
                   <label>
                     <input type="checkbox" class="custom-checkbox" id="subscribe" name="subscribe" value="yes"
                       checked="checked">
-                    <label for="subscribe" class="checkbox__text">Получать новости о скидках, <br />акциях и
-                      бонусах</label>
+                    <label for="subscribe" class="checkbox__text">Получать новости <br />обновлений
+                      профстандартов</label>
                   </label>
                   <div class="consultation__policy">
                     Нажимая на кнопку, вы соглашаетесь с <a class="consultation__policy-link"
@@ -2266,7 +2045,7 @@
                   Кандидат педагогических наук, доцент, эксперт Федеральной службы по надзору в сфере образования и
                   науки
                 </div>
-                <button class="btn btn--education wow fadeInUp" data-wow-delay=".5s" type="button">Подать
+                <button class="btn btn--consultation wow fadeInUp" data-wow-delay=".5s" type="button">Подать
                   заявку</button>
               </div>
             </div>
@@ -2292,17 +2071,17 @@
                     <img src="images/icon-check-blue.svg">
                   </div>
                   <div class="check-list__wrapper-item__list-text">
-                    Прочитайте о программе и узнайте больше о профессии
+                    Прочитайте информацию на сайте
                   </div>
                 </div>
                 <div
-                  class="check-list__wrapper-item__list check-list__wrapper-item__list-blue btn--education wow fadeInUp"
+                  class="check-list__wrapper-item__list check-list__wrapper-item__list-blue btn--consultation wow fadeInUp"
                   data-wow-delay=".4s">
                   <div class="check-list__wrapper-item__list-img">
                     <img src="images/icon-square.svg">
                   </div>
                   <div class="check-list__wrapper-item__list-text">
-                    <span>Запишитесь на консультацию </span>и получите ответы на все вопросы
+                    <span> Подайте заявку на цикл на портале НМО Минздрава России</span>
                   </div>
                 </div>
                 <div class="check-list__wrapper-item__list wow fadeInUp" data-wow-delay=".5s">
@@ -2310,7 +2089,7 @@
                     <img src="images/icon-square-blue.svg">
                   </div>
                   <div class="check-list__wrapper-item__list-text">
-                    Загрузите документы в личный кабинет
+                    Получите консультацию нашего методиста
                   </div>
                 </div>
                 <div class="check-list__wrapper-item__list wow fadeInUp" data-wow-delay=".6s">
@@ -2318,7 +2097,7 @@
                     <img src="images/icon-square-blue.svg">
                   </div>
                   <div class="check-list__wrapper-item__list-text">
-                    Заключите договор
+                    Загрузите документы в личный кабинет
                   </div>
                 </div>
                 <div class="check-list__wrapper-item__list wow fadeInUp" data-wow-delay=".7s">
@@ -2326,7 +2105,7 @@
                     <img src="images/icon-square-blue.svg">
                   </div>
                   <div class="check-list__wrapper-item__list-text">
-                    Пройдите обучение
+                    Заключите договор
                   </div>
                 </div>
                 <div class="check-list__wrapper-item__list wow fadeInUp" data-wow-delay=".8s">
@@ -2334,7 +2113,15 @@
                     <img src="images/icon-square-blue.svg">
                   </div>
                   <div class="check-list__wrapper-item__list-text">
-                    Получите диплом и станьте востребованным специалистом
+                    Пройдите обучение
+                  </div>
+                </div>
+                <div class="check-list__wrapper-item__list wow fadeInUp" data-wow-delay=".9s">
+                  <div class="check-list__wrapper-item__list-img">
+                    <img src="images/icon-square-blue.svg">
+                  </div>
+                  <div class="check-list__wrapper-item__list-text">
+                    Получите баллы НМО и удостоверение о повышении квалификации
                   </div>
                 </div>
 
@@ -2613,30 +2400,24 @@
               <div class="pay__wrapper-inner wow fadeInLeft" data-wow-delay=".1s">
                 <div class="pay__wrapper-inner_top">
                   <div class="pay__suptitle">
-                    Он-лайн переподготовка
+                    ЦИКЛ НМО
                   </div>
                   <h2 class="title wow fadeInLeft" data-wow-delay=".1s">
-                    Ультразвуковая диагностика в акушерстве и гинекологии
+                    Непрерывное медицинское образование
                   </h2>
                 </div>
                 <div class="pay__wrapper-line"></div>
                 <div class="pay__wrapper-prices">
+
                   <div class="pay__wrapper-inner__prices">
-                    <div class="pay__price-old__title">
-                      Частями без переплат
+                    <div class="pay__img">
+                      <img src="images/pay-img.png">
                     </div>
-                    <div class="pay__price-old">33 200 <span>₽/месяц</span></div>
-                    <div class="pay__price-new">
-                      16 600 <span>₽/месяц</span>
-                    </div>
-                  </div>
-                  <div class="pay__wrapper-inner__prices">
                     <div class="pay__price-old__title">
                       Одним платежом
                     </div>
-                    <div class="pay__price-old">99 600 <span>₽/месяц</span></div>
                     <div class="pay__price-new">
-                      49 800 <span>₽</span>
+                      15 000 <span>₽</span>
                     </div>
                   </div>
 
@@ -2683,7 +2464,7 @@
                   <span class="pay__wrapper-deduction__text">Возможность получить налоговый <span
                       class="pinkColor">вычет 13%</span>
                 </div>
-                <button class="btn btn--education" type="button">Пройти курс</button>
+                <button class="btn btn--consultation" type="button">Пройти курс</button>
               </div>
               <div class="pay__wrapper-form wow fadeInRight" data-wow-delay=".2s">
                 <h2 class="title wow fadeInLeft" data-wow-delay=".1s">
@@ -2715,8 +2496,8 @@
                     <label>
                       <input type="checkbox" class="custom-checkbox" id="questions" name="questions" value="yes"
                         checked="checked">
-                      <label for="questions" class="checkbox__text">Получать новости о скидках, <br />акциях и
-                        бонусах</label>
+                      <label for="questions" class="checkbox__text">Получать новости <br />обновлений
+                        профстандартов</label>
                     </label>
                   </div>
                 </form>
@@ -2732,8 +2513,8 @@
 
         <div class="wrapper">
           <div class="modal" style="display: none;" id="form--education">
-            <div class="modal-title">Пройти обучение</div>
-            <div class="modal-subtitle">Методист отдела обучения свяжется с Вами</div>
+            <div class="modal-title">НМО под ключ</div>
+            <div class="modal-subtitle">С Вами свяжется методист отдела непрерывного медицинского образования</div>
             <form action="#" class="form form-modal form--education" method="POST" enctype="multipart/form-data"
               novalidate="novalidate">
               <lable class="form-label__name">
@@ -2753,7 +2534,7 @@
               <div class="modal-btn">
                 <label>
                   <input type="checkbox" class="custom-checkbox" id="modal" name="modal" value="yes" checked="checked">
-                  <label for="modal" class="checkbox__text">Получать новости о скидках, <br />акциях и бонусах</label>
+                  <label for="modal" class="checkbox__text">Получать новости <br />обновлений профстандартов</label>
                 </label>
                 <button class="btn">Оставить заявку</button>
               </div>
@@ -2786,7 +2567,40 @@
                 <label>
                   <input type="checkbox" class="custom-checkbox" id="modal-1" name="modal-1" value="yes"
                     checked="checked">
-                  <label for="modal-1" class="checkbox__text">Получать новости о скидках, <br />акциях и бонусах</label>
+                  <label for="modal-1" class="checkbox__text">Получать новости <br />обновлений профстандартов</label>
+                </label>
+                <button class="btn">Оставить заявку</button>
+              </div>
+              <div class="consultation__policy">
+                Нажимая на кнопку, вы соглашаетесь с <a class="consultation__policy-link"
+                  href="https://apkipp.ru/policy/" target="_blank">Политикой
+                  конфиденциальности сайта </a>
+              </div>
+            </form>
+          </div>
+          <div class="modal" style="display: none;" id="form--instruction">
+            <div class="modal-title">Получить инструкцию</div>
+            <div class="modal-subtitle">Инструкция будет отправлена Вам на эл. почту</div>
+            <form action="#" class="form form-modal form--consultation" method="POST" enctype="multipart/form-data"
+              novalidate="novalidate">
+              <lable class="form-label__name">
+                <input class="input input-name" type="text" data-validate-field="name" name="ФИО" placeholder="ФИО">
+              </lable>
+              <div class="modal-contact">
+                <lable class="form-label__tel">
+                  <input class="input input-tel phone" type="tel" data-validate-field="tel" name="Телефон"
+                    placeholder="Телефон" inputmode="text">
+                </lable>
+                <lable class="form-label__email">
+                  <input id="email" class="input input-mail" type="email" data-validate-field="email" name="Email"
+                    placeholder="Email">
+                </lable>
+              </div>
+              <div class="modal-btn">
+                <label>
+                  <input type="checkbox" class="custom-checkbox" id="modal-1" name="modal-1" value="yes"
+                    checked="checked">
+                  <label for="modal-1" class="checkbox__text">Получать новости <br />обновлений профстандартов</label>
                 </label>
                 <button class="btn">Оставить заявку</button>
               </div>
